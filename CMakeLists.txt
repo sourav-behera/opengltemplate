@@ -3,14 +3,11 @@ cmake_minimum_required(VERSION 3.30.4)
 project(opengltemplate)
 
 add_executable(opengltemplate
+  vendor/glad/src/glad.c
   engine/main.cpp
   engine/utils/shader.cpp
   engine/utils/texture.cpp
   engine/utils/stb_image.cpp
-  engine/core/camera.cpp
-  engine/core/cube.cpp
-  engine/core/window.cpp
-  vendor/glad/src/glad.c
 )
 
 include_directories(
