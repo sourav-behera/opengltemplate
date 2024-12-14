@@ -1,0 +1,3 @@
+// TODO: Extend the GameObject class
+// TODO: Add other primitives like quad, cirle, sphere, cylinder etc.
+// TODO: Implement Basic Lighting.

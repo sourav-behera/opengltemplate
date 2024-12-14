@@ -82,6 +82,10 @@ class Camera : public GameObject{
       return projectionMatrix;
     };
 
+    glm::vec3 getPosition() {
+      return cameraPosition;
+    }
+
     void update() override {
       // moveCamera(window, deltaTime);
       // rotateCamera(xoffset, yoffset);

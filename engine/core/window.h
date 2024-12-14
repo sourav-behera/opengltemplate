@@ -65,7 +65,7 @@ class Window{
             glViewport(0, 0, width, height);
             glEnable(GL_DEPTH_TEST);
 
-            // glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
+            glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
             glfwSetCursorPosCallback(window, win::cursorPositionCallback);
             glfwSetKeyCallback(window, win::keyCallback);
             glfwSetFramebufferSizeCallback(window, win::framebufferSizeCallback);
@@ -74,7 +74,7 @@ class Window{
         void update(Scene *scene) {
             while(!glfwWindowShouldClose(window)) {
                 glfwPollEvents();
-                glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
+                glClearColor(0.1f, 0.1f, 0.1f, 1.0f);
                 glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
                 float currentTime = glfwGetTime();
