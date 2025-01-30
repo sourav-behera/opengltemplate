@@ -2,11 +2,12 @@ cmake_minimum_required(VERSION 3.30.4)
 
 project(opengltemplate)
 
-set (CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -Werror -std=c++14")
+set (CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -Werror -std=c++17")
 
 add_subdirectory(vendor/glfw)
 add_subdirectory(vendor/glm)
 add_subdirectory(vendor/assimp)
+add_subdirectory(vendor/freetype)
 
 add_executable(opengltemplate
   vendor/glad/src/glad.c
@@ -26,9 +27,10 @@ include_directories(
 )
 
 target_link_libraries(opengltemplate
-  ${CMAKE_SOURCE_DIR}/vendor/glfw/build/src/libglfw3.a
-  ${CMAKE_SOURCE_DIR}/vendor/freetype2/build/libfreetype.a
-  ${CMAKE_SOURCE_DIR}/vendor/assimp/bin/libassimp.so
+  glfw
+  freetype
+  assimp
+  # ${CMAKE_SOURCE_DIR}/vendor/assimp/bin/libassimp.so
   GL
 )
 

@@ -34,20 +34,24 @@ int main() {
   printf("Vendor: %s\n", vendor);
   printf("Version: %s\n", version);
   printf("GLSL Version: %s\n", glslVersion);
-
-
-  Cube *cube1 = new Cube();
+  
+  Scene *scene = new Scene();
+  
   Cube *cube2 = new Cube();
-  cube2->setShader("../assets/shaders/vertex/light.vert", "../assets/shaders/fragment/light.frag");
   glm::vec3 lightpos = glm::vec3(1.2f, 1.0f, 2.0f);
+  cube2->setShader("../assets/shaders/vertex/light.vert", "../assets/shaders/fragment/light.frag");
   cube2->setPosition(lightpos);
   cube2->setScale(glm::vec3(0.3f, 0.3f, 0.3f));
-  Scene *scene = new Scene();
-  scene->setCamera(camera);
-  cube1->setScale(glm::vec3(2.0f, 2.0f, 2.0f));
-
   scene->add(cube2);
-  scene->add(cube1);
+  
+  for (int i = 0; i < 9; i++) {
+    Cube *cube1 = new Cube();
+    scene->setCamera(camera);
+    cube1->setPosition(glm::vec3(i%3 + 1.0f, 0.0f, i/3.0f + 1.0f));
+    cube1->setScale(glm::vec3(2.0f, 2.0f, 2.0f));
+    scene->add(cube1);
+  }
+
 
   gameWindow->update(scene);
 

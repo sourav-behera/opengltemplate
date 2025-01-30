@@ -35,6 +35,7 @@ class Window{
             this->width = width;
             this->height = height;
             this->title = title;
+            this->aspectRatio = (float)this->width / this->height;
             lastFrameTime = glfwGetTime();
         };
 
@@ -86,11 +87,12 @@ class Window{
                 xoffset = offset[0];
                 yoffset = offset[1];
 
+                scene->update();
+
                 Camera *camera = scene->getCamera();
                 camera->rotateCamera(xoffset, yoffset);
                 camera->moveCamera(window, deltaTime);
 
-                scene->update();
 
                 glfwSwapBuffers(window);
             }
